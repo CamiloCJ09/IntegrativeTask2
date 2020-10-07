@@ -1,7 +1,7 @@
 # Tarea integradora 2
 ![ios-7-music-icon-nn-1024x400](https://user-images.githubusercontent.com/64206343/95392908-34a5f800-08bf-11eb-9047-8d143bdf14b3.jpg)
-***ENUNCIADO📋:***<br>
-Cansados de las continuas interrupciones de la publicidad y comerciales mientras escuchan música usando las plataformas de streaming, usted y unos compañeros de la universidad decidieron aplicar sus conocimientos en programación para diseñar e implementar el prototipo de una aplicación que permita organizar y compartir música entre sus usuarios.<br>
+***ENUNCIADO📋:***<br><br>
+<b>Cansados de las continuas interrupciones de la publicidad y comerciales mientras escuchan música usando las plataformas de streaming</b>, usted y unos compañeros de la universidad decidieron aplicar sus conocimientos en programación para diseñar e implementar el prototipo de una aplicación que permita organizar y compartir música entre sus usuarios.<br>
 
 Inicialmente, el equipo de desarrollo decidió bautizar la aplicación: el Music Collect & Share o MCS para referirse al prototipo de la app de forma corta. En un momento de creatividad crearon un logo y lo convirtieron en ascii para el prototipo (mientras aprenden interfaz gráfica de usuario)
 El Music Collect & Share tiene varios usuarios registrados, un pool de canciones compartidas y una colección de playlists.<br><br>  Cada usuario tiene un apodo o nombre de usuario que es una sola palabra, sin espacios.  Por ejemplo, lunalunera, djchristian y seyerman son nombres de usuarios de la aplicación. Todos los usuarios tienen además una contraseña, una edad y una categoría.  La categoría de un usuario  puede ser, newbie, little contributor, mild contributor y star contributor, la categoría de un usuario  se asigna dependiendo de la cantidad de canciones que han compartido en el pool de canciones así:<br><br>

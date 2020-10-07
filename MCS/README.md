@@ -1,5 +1,5 @@
 # Tarea integradora 2
-![]()
+![ios-7-music-icon-nn-1024x400](https://user-images.githubusercontent.com/64206343/95392908-34a5f800-08bf-11eb-9047-8d143bdf14b3.jpg)
 ***ENUNCIADO📋:***<br>
 Cansados de las continuas interrupciones de la publicidad y comerciales mientras escuchan música usando las plataformas de streaming, usted y unos compañeros de la universidad decidieron aplicar sus conocimientos en programación para diseñar e implementar el prototipo de una aplicación que permita organizar y compartir música entre sus usuarios.<br>
 

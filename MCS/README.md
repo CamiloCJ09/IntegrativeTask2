@@ -1,6 +1,6 @@
 # Tarea integradora 2
 ![ios-7-music-icon-nn-1024x400](https://user-images.githubusercontent.com/64206343/95392908-34a5f800-08bf-11eb-9047-8d143bdf14b3.jpg)
-Imagen tomada de: https://www.faq-mac.com/2015/04/primera-beta-de-ios-8-4-con-nueva-aplicacion-musica/
+Imagen tomada de: [Imagen](https://www.faq-mac.com/2015/04/primera-beta-de-ios-8-4-con-nueva-aplicacion-musica/)
 ## ENUNCIADO 📋:<br><br>
 <b>Cansados de las continuas interrupciones de la publicidad y comerciales mientras escuchan música usando las plataformas de streaming</b>, usted y unos compañeros de la universidad decidieron aplicar sus conocimientos en programación para diseñar e implementar el prototipo de una aplicación que permita organizar y compartir música entre sus usuarios.<br>
 
@@ -19,7 +19,7 @@ De forma general,  cada playlist en el MCS tiene un nombre, una duración y los 
 * Se incluye la canción “Nothing else matters” de Metallica con duración 6:28 y género Hard Rock. Entonces se actualiza la duración de la playlist a 11:11 y género sigue siendo ROCK<br>
 * Se incluye la canción “Jump around” de House of Pain con duración 3:37 y género hip hop.  Entonces la duración de la playlist se actualiza a  14:48 y su género se actualiza a ROCK, HIP HOP<br>
 
-Los playlist tienen tres variantes: playlists privados, restringidos y públicos. A continuación se explican las particularidades de los playlists 🔧:<br>
+<b>Los playlist tienen tres variantes: playlists privados, restringidos y públicos. A continuación se explican las particularidades de los playlists 🔧:</b><br>
 * Un playlist privado tiene un único usuario que puede añadir y listar las canciones que contiene.<br>
 * Un playlist restringido tiene un máximo de cinco usuarios que pueden añadir y listar canciones.<br>
 * Un playlist público no tiene restricciones de usuarios, es abierto para todos, pero tiene una calificación promedio, porque cualquier usuario puede ingresar una calificación entre 1  y 5 indicando qué tanto le gustó el playlist (1 la nota más baja, 5 la nota más alta)<br>

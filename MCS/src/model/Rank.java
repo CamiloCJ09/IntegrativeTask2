@@ -1,0 +1,5 @@
+package model;
+
+public enum Rank {
+    NEWBIE, LITTLECONTRIBUTOR, MIDLECONTRIBUTOR, STARCONTRIBUTOR
+}

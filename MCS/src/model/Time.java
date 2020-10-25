@@ -6,8 +6,8 @@ public class Time {
     private int seconds;
 
     public Time(int minutes, int seconds){
-        this.minutes = minutes;
-        this.seconds = seconds;
+        this.minutes = 0;
+        this.seconds = 0;
     }
     public void setMinutes(int minutes){
         this.minutes = minutes;

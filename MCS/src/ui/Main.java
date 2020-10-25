@@ -27,10 +27,13 @@ public class Main{
         int option = 0;
         System.out.println(
             "Menú principal, seleccione una opción\n" +
-            "(1) Para crear, editar o eliminar un álbum \n" +
-            "(2) Para mostrar la información de los albums en la colección \n"+
-            "(3) Para agregar una foto a un álbum\n"+
-            "(4) Para editar una foto\n" +  
+            "(1) Agregar usuario \n" +
+            "(2) Agregar playlist \n"+
+            "(3) Agregar cancion\n"+
+            "(4) Mostrar usuarios\n" +  
+            "(5) Mostrar canciones\n" +
+            "(6) Mostrar playlist\n" +
+            "(7) Añadir canciones a las playlists\n" +
             "(0) Para salir"
             );
         option= sc.nextInt();
@@ -46,9 +49,63 @@ public class Main{
                 addUser();
                 break;
             case 2:
-                System.out.println("------------------------");
-                addPlaylist();
-                System.out.println("------------------------");
+                int sOption = 0;
+                System.out.println("-----------------------------------");
+                System.out.println("Que tipo de playlist desea crear?");
+                System.out.println("-----------------------------------");
+                System.out.println("(1) Publica"+"\n"+
+                                    "(2) Privada"+"\n"+
+                                    "(3) Restringida");
+                sOption = sc.nextInt();
+                switch(sOption){
+                    case 1:
+                        String name = "";
+                        if(myMcs.hasPlaylist()){
+                            sc.nextLine();
+                            System.out.println("Ingrese el nombre de la playlist");
+                            name = sc.nextLine();
+                            myMcs.createPublicPlaylist(name);
+                            name = "";
+                        }else{
+                            System.out.println("No puedes crear mas playlists");
+                        }
+                        
+                        break;
+                    case 2:
+                            int control = 0;
+                            if(myMcs.hasPlaylist()){
+                            sc.nextLine();
+                            System.out.println("Ingrese el nombre de la playlist");
+                            
+                            name = sc.nextLine();
+                            System.out.println("Desde que usuario desea crear esta playlist");
+                            System.out.println(myMcs.showNames());
+                            control = sc.nextInt();
+                            sc.nextLine();//Woofer
+                            myMcs.createPrivatePlaylist(name, myMcs.whoIsThis(myMcs.returnUserName(control)));
+                            name = "";
+                        }else{
+                            System.out.println("No puedes crear mas playlists");
+                        }
+                        break;
+                    case 3:
+                        if(myMcs.hasPlaylist()){
+                            int[] indexes = new int[5];
+                            sc.nextLine();
+                            System.out.println("Ingrese el nombre de la playlist");
+                            name = sc.nextLine();
+                            System.out.println("Que usuarios tienen acceso a esta playlist?");
+                            System.out.println(myMcs.showNames());
+                            for(int i = 0; i<5; i++){
+                                indexes[i] = sc.nextInt()-1;
+                            }
+                            myMcs.createRestrictedPlaylist(name, myMcs.restrictedUserArray(indexes));
+                            name = "";
+                        }else{
+                            System.out.println("No puedes crear mas playlists");
+                        }
+                        break;
+                }
                 break;
         
             case 3:
@@ -60,6 +117,12 @@ public class Main{
                 break;
             case 5:
                 showSongs();
+                break;
+            case 6:
+                System.out.println(myMcs.showPlaylists());
+                break;
+            case 7:
+                addSongToPlaylist();
                 break;
             
             default:
@@ -83,6 +146,16 @@ public class Main{
         }else{
             System.out.println("");
         }
+    }
+    private void addSongToPlaylist(){
+        int index1, index2;
+        System.out.println("Ingrese la playlist a la que quiere añadir canciones");
+        System.out.println(myMcs.showPlaylistNames());
+        index1 = sc.nextInt();
+        System.out.println("Elija la cancion que desea añadir");
+        System.out.println(myMcs.showSongNames());
+        index2 = sc.nextInt();
+        myMcs.addToPlaylist(index1, index2);
     }
     private void showUsers(){
         System.out.println(myMcs.showUsers());
@@ -115,6 +188,13 @@ public class Main{
         int minutes = 0;
         int seconds = 0;
         int option = 0;
+        int index = 0;
+        System.out.println(myMcs.showNames());
+        System.out.println("Ingrese el numero del usuario desde el cual desea crear la cancion");
+        index = sc.nextInt();
+        
+        myMcs.userIndex(index);
+        sc.nextLine();//Limpiar woofer
         if(myMcs.hasSongs()){
             System.out.println("Ingrese el nombre de la cancion");
             songName = sc.nextLine();
@@ -152,6 +232,10 @@ public class Main{
                     break;
             }
             myMcs.addSongToPool(songName, artistName, releasingDate, minutes, seconds, songGender);
+            System.out.println("-----------------------------");
+            System.out.println("Cancion creada con exito :D");
+            System.out.println("-----------------------------");
+            myMcs.updateRank(index);
         }else{
             System.out.println("No se pueden agregar mas canciones");
         }

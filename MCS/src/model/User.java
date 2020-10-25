@@ -6,12 +6,20 @@ public class User {
     private String password;
     private int age;
     private Rank userRank;
+    private int amountOfSongs;
 
     public User(String userName, String password, int age){
         this.userName = userName;
         this.password = password;
         this.age = age;
         userRank = Rank.NEWBIE;
+        this.amountOfSongs = amountOfSongs;
+    }
+    public void setAmountOfSong(int amountOfSongs){
+        this.amountOfSongs = amountOfSongs;
+    }
+    public int getAmountOfSongs(){
+        return amountOfSongs;
     }
     public void setUserName(String userName){
         this.userName = userName;
@@ -36,5 +44,10 @@ public class User {
     }
     public Rank getRank(){
         return userRank;
+    }
+    public Rank convert(String userRank){
+        Rank myUserRank = Rank.valueOf(userRank);
+        return myUserRank;
+
     }
 }

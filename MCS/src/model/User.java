@@ -15,6 +15,15 @@ public class User {
         userRank = Rank.NEWBIE;
         this.amountOfSongs = amountOfSongs;
     }
+    public String userData(){
+        String msg = "";
+        msg += "********** User **********\n"+
+                "** UserName: "+userName+"\n"+
+                "** Age: "+age+"\n"+
+                "** Category: "+userRank+"\n"+
+                "**************************\n";
+        return msg;
+    }
     public void setAmountOfSong(int amountOfSongs){
         this.amountOfSongs = amountOfSongs;
     }

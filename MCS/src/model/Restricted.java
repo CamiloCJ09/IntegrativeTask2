@@ -34,7 +34,7 @@ public class Restricted extends Playlist {
         String out = "";
         out ="********** Playlist **********\n"+
              "** Title: "+getName()+"\n"+
-             "** Duration: "+getDuration()+"\n"+
+             "** Duration: "+timeToFormat(updateDuration())+"\n"+
              "** Genre: "+getSongGender()+"\n"+
              "** Users: "+showAllUsers()+"\n"+
              "******************************\n";

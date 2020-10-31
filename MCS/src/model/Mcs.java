@@ -70,16 +70,7 @@ public class Mcs {
         }
 
     }
-    public void addPlaylist(String name, String songGender){
-        
-        for(int i = 0; i < MAX_PLAYLISTS; i++){
-            if(thePlaylist[i] == null){
-                //thePlaylist[i] = new Playlist(name, genderOfSong, duration);
-                //System.out.println(thePlaylist[i].getName()+" Duracion "+thePlaylist[i].getDuration().getMinutes()+ thePlaylist[i].getDuration().getSeconds()+" Genero "+thePlaylist[i].getSongGender());
-            }
-        }
-        
-    }
+    
     public void addSongToPool(String title, String artistName, String releasingDate, int minutes, int seconds, String songGender){//Desde aquí se crean las canciones y directamente se guardan en el pool
         Time duration = new Time(minutes, seconds);
         duration.setMinutes(minutes);
@@ -109,11 +100,7 @@ public class Mcs {
         String msg = "";
         for(int i = 0; i<MAX_USERS; i++){
             if(users[i] != null){
-                msg += "********** User **********\n"+
-                "** UserName: "+users[i].getUserName()+"\n"+
-                "** Age: "+users[i].getAge()+"\n"+
-                "** Category: "+users[i].getRank()+"\n"+
-                "**************************\n";
+                msg += users[i].userData();
             }
         }
         return msg;
@@ -123,13 +110,7 @@ public class Mcs {
         boolean out = false;
         for(int i = 0; i<MAX_POOLOFSONGS ; i++){
             if(poolOfSongs[i] != null){
-                msg += "********** Song **********\n"+
-                "** Title: "+poolOfSongs[i].getTitle()+"\n"+
-                "** Artist: "+poolOfSongs[i].getArtistName()+"\n"+
-                "** Duration: "+poolOfSongs[i].getDuration().toString()+"\n"+
-                "** Genre: "+poolOfSongs[i].getSongGender()+"\n"+
-                "**************************\n";
-                
+                msg += poolOfSongs[i].showSongData();
             }
             
         }
@@ -185,6 +166,7 @@ public class Mcs {
     public void createPrivatePlaylist(String name, User myUser){
         boolean out = false;
         for(int i = 0; i<MAX_PLAYLISTS && !out; i++){
+            
             Playlist mPlaylist = new PrivateP(name, myUser);
             thePlaylist[i] = mPlaylist;
             numPlaylist++;
@@ -196,6 +178,8 @@ public class Mcs {
         String out = "";
         for(int i = 0; i<MAX_PLAYLISTS; i++){
             if(thePlaylist[i] != null){
+                thePlaylist[i].changeGendersOfPlaylist(thePlaylist[i].playlistAllGenders());
+                thePlaylist[i].timeToFormat(thePlaylist[i].updateDuration());
                 out += thePlaylist[i].playlistToString();
             }
             

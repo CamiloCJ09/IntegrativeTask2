@@ -2,10 +2,10 @@ package model;
 
 public class PublicP extends Playlist {
     private double Avrate;
-    private double[] rates = new double[10];
-    public PublicP(String name){  //!double[] rates
+    private double[] rates;
+    public PublicP(String name){  //Todo: double[] rates
         super(name);
-        this.rates = rates;
+        this.rates = new double[10];
     }
     public double rateAverage(){
         double theAverage = 0;
@@ -14,6 +14,17 @@ public class PublicP extends Playlist {
         }
         theAverage = theAverage/10;
         return theAverage;
+    }
+    @Override
+    public String playlistToString(){
+        String out = "";
+        out ="********** Playlist **********\n"+
+             "** Title: "+getName()+"\n"+
+             "** Duration: "+timeToFormat(updateDuration())+"\n"+
+             "** Genre: "+changeGendersOfPlaylist(playlistAllGenders())+"\n"+
+             "******************************\n";
+
+        return out;
     }
 
     /**

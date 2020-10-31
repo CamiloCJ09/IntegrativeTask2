@@ -18,12 +18,12 @@ public class PrivateP extends Playlist {
         String out = "";
         out ="********** Playlist **********\n"+
              "** Title: "+getName()+"\n"+
-             "** Duration: "+getDuration()+"\n"+
-             "** Genre: "+getSongGender()+"\n"+
+             "** Duration: "+timeToFormat(updateDuration())+"\n"+
+             "** Genre: "+changeGendersOfPlaylist(playlistAllGenders())+"\n"+
              "** User: "+myUser.getUserName()+"\n"+
              "******************************\n";
 
-        return out;
-    }
+            return out;
+        }
 
 }

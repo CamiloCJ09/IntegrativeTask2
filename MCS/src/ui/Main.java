@@ -163,7 +163,7 @@ public class Main{
     private void showSongs(){
         System.out.println(myMcs.showSongs());
     }
-    private void addPlaylist(){
+private void addPlaylist(){
         String name = "";
         String songGender = "";
         int minutes = 0;

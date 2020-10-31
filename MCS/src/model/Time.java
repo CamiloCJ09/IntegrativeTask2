@@ -26,4 +26,9 @@ public class Time {
         msg = minutes+":"+seconds;
         return msg;
     }
+    public int timeToSeconds(){
+        int totalSeconds = 0;
+        totalSeconds = (minutes*60)+seconds;
+        return totalSeconds;
+    }
 }

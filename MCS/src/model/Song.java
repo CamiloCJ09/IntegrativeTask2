@@ -18,6 +18,21 @@ public class Song {
         this.songGender = songGender;
     }
 
+    public int songDurationSong(){
+        int durationInSeconds = getDuration().timeToSeconds();
+        return durationInSeconds;
+    }
+    public String showSongData(){
+        String msg = "";
+        msg += "********** Song **********\n"+
+                "** Title: "+title+"\n"+
+                "** Artist: "+artistName+"\n"+
+                "** Duration: "+duration+"\n"+
+                "** Genre: "+songGender.toString()+"\n"+
+                "**************************\n";
+        return msg;
+    }
+
     /**
      * @return String return the title
      */

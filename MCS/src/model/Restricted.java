@@ -22,6 +22,10 @@ public class Restricted extends Playlist {
     public void setMyUsers(User[] myUsers) {
         this.myUsers = myUsers;
     }
+    
+    /** 
+     * @return String
+     */
     public String showAllUsers(){
         String out0 = "";
         for(int i = 0; i<5; i++){
@@ -29,6 +33,10 @@ public class Restricted extends Playlist {
         }
         return out0;
     }
+    
+    /** 
+     * @return String
+     */
     @Override
     public String playlistToString(){
         String out = "";
@@ -41,5 +49,19 @@ public class Restricted extends Playlist {
 
         return out;
     }
+    
+    /** 
+     * @return double
+     */
+    @Override
+    public double rateAverage(){
+        double p1 = 0;
+        return p1;
+    }
+    
+    /** 
+     * @param rate
+     */
+    public void setRate(double rate) {}
 
 }

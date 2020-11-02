@@ -6,13 +6,35 @@ public class PrivateP extends Playlist {
         super(name);
         this.myUser = myUser;
     }
+    
+    /** 
+     * @param mysUser
+     */
     public void setMyUser(User mysUser){
         this.myUser = myUser;
     }
 
+    
+    /** 
+     * @return User
+     */
     public User getMyUser() {
         return myUser;
     }
+
+    
+    /** 
+     * @return double
+     */
+    @Override
+    public double rateAverage(){
+        double p1 = 0;
+        return p1;
+    }
+    
+    /** 
+     * @return String
+     */
     @Override
     public String playlistToString(){
         String out = "";
@@ -25,5 +47,11 @@ public class PrivateP extends Playlist {
 
             return out;
         }
+        
+    /** 
+    * @param rate
+    */
+    @Override
+    public void setRate(double rate) {}
 
 }

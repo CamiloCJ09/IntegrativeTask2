@@ -13,6 +13,10 @@ public class Main{
         myMcs = new Mcs();
         sc = new Scanner(System.in);
     }
+    
+    /** 
+     * @param args
+     */
     public static void main(String [] args){
         System.out.println("Hola");
         System.out.println("Inicio del codigo");
@@ -23,6 +27,10 @@ public class Main{
             myMain.executeOption(operation);
         }while (operation != 0);
     }
+    
+    /** 
+     * @return int
+     */
     public int showMenu(){
         int option = 0;
         System.out.println(
@@ -34,12 +42,17 @@ public class Main{
             "(5) Mostrar canciones\n" +
             "(6) Mostrar playlist\n" +
             "(7) Añadir canciones a las playlists\n" +
+            "(8) Califica una playlist publica\n" +
             "(0) Para salir"
             );
         option= sc.nextInt();
         sc.nextLine();
         return option;
     }
+    
+    /** 
+     * @param operation
+     */
     public void executeOption(int operation){
         switch(operation) {
             case 0:
@@ -64,10 +77,13 @@ public class Main{
                             sc.nextLine();
                             System.out.println("Ingrese el nombre de la playlist");
                             name = sc.nextLine();
-                            myMcs.createPublicPlaylist(name);
+                            myMcs.createPlaylist(name);
+                            System.out.println("-----------------------------");
+                            System.out.println("Playlist creada con exito :D");
+                            System.out.println("-----------------------------");
                             name = "";
                         }else{
-                            System.out.println("No puedes crear mas playlists");
+                            System.out.println("Numero máximo de playlists alcanzado");
                         }
                         
                         break;
@@ -82,10 +98,13 @@ public class Main{
                             System.out.println(myMcs.showNames());
                             control = sc.nextInt();
                             sc.nextLine();//Woofer
-                            myMcs.createPrivatePlaylist(name, myMcs.whoIsThis(myMcs.returnUserName(control)));
+                            myMcs.createPlaylist(name, myMcs.whoIsThis(myMcs.returnUserName(control)));
+                            System.out.println("-----------------------------");
+                            System.out.println("Playlist creada con exito :D");
+                            System.out.println("-----------------------------");
                             name = "";
                         }else{
-                            System.out.println("No puedes crear mas playlists");
+                            System.out.println("Numero máximo de playlists alcanzado");
                         }
                         break;
                     case 3:
@@ -99,10 +118,13 @@ public class Main{
                             for(int i = 0; i<5; i++){
                                 indexes[i] = sc.nextInt()-1;
                             }
-                            myMcs.createRestrictedPlaylist(name, myMcs.restrictedUserArray(indexes));
+                            myMcs.createPlaylist(name, myMcs.restrictedUserArray(indexes));
+                            System.out.println("-----------------------------");
+                            System.out.println("Playlist creada con exito :D");
+                            System.out.println("-----------------------------");
                             name = "";
                         }else{
-                            System.out.println("No puedes crear mas playlists");
+                            System.out.println("Numero máximo de playlists alcanzado");
                         }
                         break;
                 }
@@ -124,11 +146,28 @@ public class Main{
             case 7:
                 addSongToPlaylist();
                 break;
+            case 8:
+                scorePublicPlaylist();
+                break;
             
             default:
                 System.out.println("Error, opción no válida");
             
             }
+    }
+    public void scorePublicPlaylist(){
+        int index = 0;
+        double score = 0;
+        System.out.println("Que playlist desea calificar?");
+        System.out.println(myMcs.showPublicPlaylist());
+        index = sc.nextInt();
+        index = index-1;
+        System.out.println("Califica de 1 a 5");
+        score = sc.nextDouble();
+        myMcs.updateScoreInPPlaylist(myMcs.onlyPublicPlaylistsToScore(), index, score);
+        System.out.println("-----------------------------");
+        System.out.println("Playlist calificada con exito :D");
+        System.out.println("-----------------------------");
     }
     private void addUser(){
         String name = "";
@@ -143,8 +182,11 @@ public class Main{
             System.out.println("Edad");
             age = sc.nextInt();
             myMcs.addUser(name, password, age);
+            System.out.println("-----------------------------");
+            System.out.println("Usuario creado con exito :D");
+            System.out.println("-----------------------------");
         }else{
-            System.out.println("");
+            System.out.println("Numero máximo de usuarios alcanzado");
         }
     }
     private void addSongToPlaylist(){
@@ -156,6 +198,9 @@ public class Main{
         System.out.println(myMcs.showSongNames());
         index2 = sc.nextInt();
         myMcs.addToPlaylist(index1, index2);
+        System.out.println("-----------------------------");
+        System.out.println("Canción añadida con exito :D");
+        System.out.println("-----------------------------");
     }
     private void showUsers(){
         System.out.println(myMcs.showUsers());
@@ -163,22 +208,7 @@ public class Main{
     private void showSongs(){
         System.out.println(myMcs.showSongs());
     }
-private void addPlaylist(){
-        String name = "";
-        String songGender = "";
-        int minutes = 0;
-        int seconds = 0;
-        System.out.println("Nombre");
-        name = sc.nextLine();
-        System.out.println("Genero");
-        songGender = sc.nextLine();
-        System.out.println("Minutos");
-        minutes = sc.nextInt();
-        System.out.println("Segundos");
-        seconds = sc.nextInt();
 
-        //myMcs.addPlaylist(name, songGender, minutes, seconds);
-    }
     private void addSong(){
         //! Van 2 metodos, actializacion de el rango del usuario
         String songName = "";

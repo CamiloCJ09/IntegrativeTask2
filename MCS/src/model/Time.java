@@ -48,7 +48,8 @@ public class Time {
     }
     
     /** 
-     * @return int
+     * Método que pasa todos los minutos a segundos
+     * @return int , cantidad total de segundos
      */
     public int timeToSeconds(){
         int totalSeconds = 0;

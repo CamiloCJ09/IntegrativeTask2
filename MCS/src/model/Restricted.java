@@ -24,7 +24,8 @@ public class Restricted extends Playlist {
     }
     
     /** 
-     * @return String
+     * Método que muestra todos los usuarios que están asignados a esta playlist
+     * @return String , coon los nombres de todos los usuarios 
      */
     public String showAllUsers(){
         String out0 = "";
@@ -35,7 +36,8 @@ public class Restricted extends Playlist {
     }
     
     /** 
-     * @return String
+     * Método que imprime toda la información de una playlist
+     * @return String , información de la playlist
      */
     @Override
     public String playlistToString(){
@@ -50,18 +52,7 @@ public class Restricted extends Playlist {
         return out;
     }
     
-    /** 
-     * @return double
-     */
-    @Override
-    public double rateAverage(){
-        double p1 = 0;
-        return p1;
-    }
     
-    /** 
-     * @param rate
-     */
-    public void setRate(double rate) {}
+
 
 }

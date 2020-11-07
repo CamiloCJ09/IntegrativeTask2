@@ -9,7 +9,10 @@ public abstract class Playlist {
     private Song[] playSongs;
 
     //private String gendersInString = changeGendersOfPlaylist(playlistAllGenders());
-
+    /**
+     * Constructor de la playlist genérica
+     * @param name , nombre de la playlist
+     */
     public Playlist(String name){
         this.name = name;
         this.songGender = Gender.UNKNOWN;
@@ -18,18 +21,11 @@ public abstract class Playlist {
         
     }
     
-    
     /** 
-     * @param updateGender(
-     * @return double
-     */
-    public abstract double rateAverage();
-    public void updateGender(){
-        
-    }
-    
-    /** 
-     * @param mySong
+     * Método que permite añadir una canción a la playlist
+     * pre: El arreglo para guardar las canciones en la playlist debe estar definido
+     * pos: 
+     * @param mySong la canción que será agregada a la playlist
      */
     public void addAtOnce(Song mySong){
         boolean out = false; 
@@ -42,60 +38,34 @@ public abstract class Playlist {
         }
         
     }
-    
-    /** 
-     * @return String
-     */
-    /*public String getGendersInString(){
-        return gendersInString;
-    }
-    */
+
     public String getName() {
         return name;
     }
 
-    
-    /** 
-     * @param name
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    
-    /** 
-     * @return Gender
-     */
     public Gender getSongGender() {
         return songGender;
     }
 
-    
-    /** 
-     * @param songGender
-     */
     public void setSongGender(Gender songGender) {
         this.songGender = songGender;
     }
-  
-    
-    /** 
-     * @return Time
-     */
     public Time getDuration() {
         return duration;
     }
 
-    
-    /** 
-     * @param duration
-     */
     public void setDuration(Time duration) {
         this.duration = duration;
     }
     
     /** 
-     * @return Gender[]
+     * Método que devuelve un arreglo con los géneros de todas las canciones guardadas en la playlist
+     * pre:
+     * @return Gender[] arreglo con todos los géneros de las canciones de la playlist
      */
     public Gender[] playlistAllGenders(){
         Gender allSongsGender[] = new Gender[MAX_SONGS_PLAYLIST];
@@ -109,8 +79,11 @@ public abstract class Playlist {
     }
     
     /** 
-     * @param allGenders
-     * @return String
+     * Método que actualiza el genero de la playlist sin repetir géneros
+     * pre:
+     * pos:
+     * @param allGenders arreglo de géneros de todas las canciones en la playlist
+     * @return String , con los géneros sin repetir de la playlist
      */
     public String changeGendersOfPlaylist(Gender[] allGenders){
         String out = "";
@@ -140,7 +113,10 @@ public abstract class Playlist {
     }
     
     /** 
-     * @return int
+     * Método que actualiza el tiempo de la playlist
+     * pre: el arreglo de canciones debe estar definido con al menos una canción
+     * pos:
+     * @return int , segundos de duración total de la playlist
      */
     public int updateDuration(){
         int newSecondsTotal = 0;
@@ -153,6 +129,9 @@ public abstract class Playlist {
     }
     
     /** 
+     * Método que convierte los segundos totales de la playlist al formato deseado
+     * pre:
+     * pos:
      * @param newSecondsTotal
      * @return String
      */
@@ -165,7 +144,8 @@ public abstract class Playlist {
     }
     
     /** 
-     * @return String
+     * Método que imprime toda la información de una playlist
+     * @return String , información de la playlist
      */
     public String playlistToString(){
         String out = "";
@@ -177,5 +157,5 @@ public abstract class Playlist {
 
         return out;
     }
-    public abstract void setRate(double rate);
+
 }

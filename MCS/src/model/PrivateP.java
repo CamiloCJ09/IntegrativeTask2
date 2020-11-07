@@ -11,29 +11,16 @@ public class PrivateP extends Playlist {
      * @param mysUser
      */
     public void setMyUser(User mysUser){
-        this.myUser = myUser;
+        this.myUser = mysUser;
     }
 
-    
-    /** 
-     * @return User
-     */
     public User getMyUser() {
         return myUser;
     }
 
-    
     /** 
-     * @return double
-     */
-    @Override
-    public double rateAverage(){
-        double p1 = 0;
-        return p1;
-    }
-    
-    /** 
-     * @return String
+     * Método que imprime toda la información de una playlist
+     * @return String , información de la playlist
      */
     @Override
     public String playlistToString(){
@@ -47,11 +34,5 @@ public class PrivateP extends Playlist {
 
             return out;
         }
-        
-    /** 
-    * @param rate
-    */
-    @Override
-    public void setRate(double rate) {}
 
 }

@@ -4,15 +4,20 @@ public class PublicP extends Playlist {
     private double[] rates;
     private double score;
     private int count;
+
+    /**
+     * Constructor de la playlist publica
+     * @param name , nombre de la playlist publica
+     */
     public PublicP(String name){  //Todo: double[] rates
         super(name);
         this.rates = new double[10];
     }
     
     /** 
-     * @return double
+     * Método que calcula la calificación promedio
+     * @return double , con el promedio
      */
-    @Override
     public double rateAverage(){
         double theAverage = 0;
         theAverage = score;
@@ -21,7 +26,8 @@ public class PublicP extends Playlist {
     
     
     /** 
-     * @return String
+     * Método que imprime toda la información de una playlist
+     * @return String , información de la playlist
      */
     @Override
     public String playlistToString(){
@@ -36,22 +42,14 @@ public class PublicP extends Playlist {
         return out;
     }
 
-    /**
-     * @return double return the rate
-     */
     public double[] getRate() {
         return rates;
     }
-    
-    /** 
-     * @param rates
-     */
+
     public void setRate(double[] rates){
         this.rates = rates;
     }
-    /**
-     * @param rates the rate to set
-     */
+
     public void setRate(double userScore) {
         score += userScore;
         count++;

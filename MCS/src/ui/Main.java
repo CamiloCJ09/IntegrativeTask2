@@ -9,6 +9,9 @@ public class Main{
     private Mcs myMcs;
     private Scanner sc;
 
+    /**
+     * Método constructor del Main
+     */
     public Main(){
         myMcs = new Mcs();
         sc = new Scanner(System.in);
@@ -29,7 +32,8 @@ public class Main{
     }
     
     /** 
-     * @return int
+     * Método que muestra las opciones posibles del menú
+     * @return int , opción elegida
      */
     public int showMenu(){
         int option = 0;
@@ -51,7 +55,8 @@ public class Main{
     }
     
     /** 
-     * @param operation
+     * Método que ejecuta la opción deseada
+     * @param operation , opción elegida por el usuario
      */
     public void executeOption(int operation){
         switch(operation) {
@@ -155,6 +160,9 @@ public class Main{
             
             }
     }
+    /**
+     * Método para calificar una playlist publica
+     */
     public void scorePublicPlaylist(){
         int index = 0;
         double score = 0;
@@ -169,6 +177,9 @@ public class Main{
         System.out.println("Playlist calificada con exito :D");
         System.out.println("-----------------------------");
     }
+    /**
+     * Método añadir un usuario
+     */
     private void addUser(){
         String name = "";
         String password = "";
@@ -189,6 +200,9 @@ public class Main{
             System.out.println("Numero máximo de usuarios alcanzado");
         }
     }
+    /**
+     * Método para añadir una canción a una playlist
+     */
     private void addSongToPlaylist(){
         int index1, index2;
         System.out.println("Ingrese la playlist a la que quiere añadir canciones");
@@ -202,15 +216,23 @@ public class Main{
         System.out.println("Canción añadida con exito :D");
         System.out.println("-----------------------------");
     }
+    /**
+     * Método para mostrar usuarios
+     */
     private void showUsers(){
         System.out.println(myMcs.showUsers());
     }
+    /**
+     * Método para mostrar canciones
+     */
     private void showSongs(){
         System.out.println(myMcs.showSongs());
     }
-
+    /**
+     * Método para crear canciones
+     */
     private void addSong(){
-        //! Van 2 metodos, actializacion de el rango del usuario
+        
         String songName = "";
         String artistName = "";
         String releasingDate = "";

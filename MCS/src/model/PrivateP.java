@@ -6,10 +6,7 @@ public class PrivateP extends Playlist {
         super(name);
         this.myUser = myUser;
     }
-    
-    /** 
-     * @param mysUser
-     */
+
     public void setMyUser(User mysUser){
         this.myUser = mysUser;
     }

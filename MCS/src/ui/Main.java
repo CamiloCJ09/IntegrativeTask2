@@ -204,14 +204,17 @@ public class Main{
      * Método para añadir una canción a una playlist
      */
     private void addSongToPlaylist(){
-        int index1, index2;
+        int index1, index2, index3;
         System.out.println("Ingrese la playlist a la que quiere añadir canciones");
         System.out.println(myMcs.showPlaylistNames());
         index1 = sc.nextInt();
         System.out.println("Elija la cancion que desea añadir");
         System.out.println(myMcs.showSongNames());
         index2 = sc.nextInt();
-        myMcs.addToPlaylist(index1, index2);
+        System.out.println("Elija el usuario que desea añadir");
+        System.out.println(myMcs.showNames());
+        index3 = sc.nextInt();
+        myMcs.addToPlaylist(index1, index2, index3);
         System.out.println("-----------------------------");
         System.out.println("Canción añadida con exito :D");
         System.out.println("-----------------------------");

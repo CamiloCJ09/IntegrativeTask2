@@ -41,12 +41,8 @@ public class Restricted extends Playlist {
      */
     @Override
     public String playlistToString(){
-        String out = "";
-        out ="********** Playlist **********\n"+
-             "** Title: "+getName()+"\n"+
-             "** Duration: "+timeToFormat(updateDuration())+"\n"+
-             "** Genre: "+getSongGender()+"\n"+
-             "** Users: "+showAllUsers()+"\n"+
+        String out = super.playlistToString();
+        out +="** Users: "+showAllUsers()+"\n"+
              "******************************\n";
 
         return out;

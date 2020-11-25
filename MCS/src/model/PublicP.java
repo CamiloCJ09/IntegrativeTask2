@@ -31,12 +31,8 @@ public class PublicP extends Playlist {
      */
     @Override
     public String playlistToString(){
-        String out = "";
-        out ="********** Playlist **********\n"+
-             "** Title: "+getName()+"\n"+
-             "** Duration: "+timeToFormat(updateDuration())+"\n"+
-             "** Genre: "+changeGendersOfPlaylist(playlistAllGenders())+"\n"+
-             "** Score: "+rateAverage()+"\n"+
+        String out = super.playlistToString();
+        out +="** Score: "+rateAverage()+"\n"+
              "******************************\n";
 
         return out;

@@ -3,8 +3,6 @@ package model;
 public abstract class Playlist {
     public final int MAX_SONGS_PLAYLIST = 30;
     private String name;
-    
-    private Gender songGender;
     private Time duration;
     private Song[] playSongs;
 
@@ -15,7 +13,6 @@ public abstract class Playlist {
      */
     public Playlist(String name){
         this.name = name;
-        this.songGender = Gender.UNKNOWN;
         this.duration = new Time(0, 0);
         this.playSongs = new Song[MAX_SONGS_PLAYLIST];
         
@@ -46,14 +43,6 @@ public abstract class Playlist {
     public void setName(String name) {
         this.name = name;
     }
-
-    public Gender getSongGender() {
-        return songGender;
-    }
-
-    public void setSongGender(Gender songGender) {
-        this.songGender = songGender;
-    }
     public Time getDuration() {
         return duration;
     }
@@ -69,7 +58,6 @@ public abstract class Playlist {
      */
     public Gender[] playlistAllGenders(){
         Gender allSongsGender[] = new Gender[MAX_SONGS_PLAYLIST];
-        
             for(int i = 0; i<MAX_SONGS_PLAYLIST; i++){
                 if(playSongs[i] != null){
                     allSongsGender[i] = playSongs[i].getSongGender();
@@ -152,8 +140,7 @@ public abstract class Playlist {
         out ="********** Playlist **********\n"+
              "** Title: "+name+"\n"+
              "** Duration: "+timeToFormat(updateDuration())+"\n"+
-             "** Genre: "+changeGendersOfPlaylist(playlistAllGenders())+"\n"+
-             "******************************\n";
+             "** Genre: "+changeGendersOfPlaylist(playlistAllGenders())+"\n";
 
         return out;
     }

@@ -21,12 +21,8 @@ public class PrivateP extends Playlist {
      */
     @Override
     public String playlistToString(){
-        String out = "";
-        out ="********** Playlist **********\n"+
-             "** Title: "+getName()+"\n"+
-             "** Duration: "+timeToFormat(updateDuration())+"\n"+
-             "** Genre: "+changeGendersOfPlaylist(playlistAllGenders())+"\n"+
-             "** User: "+myUser.getUserName()+"\n"+
+        String out = super.playlistToString();
+        out +="** User: "+myUser.getUserName()+"\n"+
              "******************************\n";
 
             return out;

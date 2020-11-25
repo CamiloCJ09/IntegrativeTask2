@@ -148,11 +148,27 @@ public class Mcs {
      * pre: debe existir un array de playlist con al menos una playlist y debe existir un array de pool of song con al menos una canción
      * @param index1 playlist a la cual queremos añadir una canción
      * @param index2 canción la cual queremos añadir a una playlist
+     * @param index3 usuario que añade la canción a la playlist
      */
-    public void addToPlaylist(int index1, int index2){//Mandamos las canciones del pool a cualquier playlist disponible elegida por el usuario
+    public void addToPlaylist(int index1, int index2, int index3){//Mandamos las canciones del pool a cualquier playlist disponible elegida por el usuario
+        
         index1 = index1-1;
         index2 = index2-1;
-        thePlaylist[index1].addAtOnce(poolOfSongs[index2]);
+        index3 = index3-1;
+        if(thePlaylist[index1] instanceof PrivateP){
+            if(((PrivateP)thePlaylist[index1]).getMyUser().equals(users[index3])){
+                thePlaylist[index1].addAtOnce(poolOfSongs[index2]);
+            }
+        }else if(thePlaylist[index1] instanceof Restricted){
+            User[] restrictedUsers = ((Restricted)thePlaylist[index1]).getMyUsers()
+            for(int i = 0; i < restrictedUsers.length; i++){
+                if(restrictedUsers[i].equals(users[index3])){
+                    thePlaylist[index1].addAtOnce(poolOfSongs[index2]);
+                }
+            }
+        }else{
+            thePlaylist[index1].addAtOnce(poolOfSongs[index2]);
+        }
         
     }
    
@@ -220,12 +236,10 @@ public class Mcs {
     public void updateRank(int index){
         index = index-1;
         if(users[index].getAmountOfSongs()>=3 && users[index].getAmountOfSongs()<10){
-            
             users[index].setRank(users[index].convert("LITTLECONTRIBUTOR"));
-
-        }else if(users[index].getAmountOfSongs()>=10 && users[index].getAmountOfSongs()<30){
+        }else if(users[index].getAmountOfSongs()<30){
             users[index].setRank(users[index].convert("MIDLECONTRIBUTOR"));
-        }else if(users[index].getAmountOfSongs()==30){
+        }else{
             users[index].setRank(users[index].convert("STARCONTRIBUTOR"));
         }
     }

@@ -37,8 +37,8 @@ public class Song {
     }
     
     /**
-     * Método que muestra la información de la canción 
-     * @return String
+     * Method that displays song information 
+     * @return String, with the information of the song
      */
     public String showSongData(){
         String msg = "";

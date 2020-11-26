@@ -24,8 +24,8 @@ public class Restricted extends Playlist {
     }
     
     /** 
-     * Método que muestra todos los usuarios que están asignados a esta playlist
-     * @return String , coon los nombres de todos los usuarios 
+     * Method that shows all the users that are assigned to this playlist
+     * @return String , with the names of all users that have access to the playlist 
      */
     public String showAllUsers(){
         String out0 = "";
@@ -36,8 +36,8 @@ public class Restricted extends Playlist {
     }
     
     /** 
-     * Método que imprime toda la información de una playlist
-     * @return String , información de la playlist
+     * Method that prints all the information of a playlist
+     * @return String , playlist information
      */
     @Override
     public String playlistToString(){

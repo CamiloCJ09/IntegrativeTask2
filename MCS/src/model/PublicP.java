@@ -6,8 +6,9 @@ public class PublicP extends Playlist {
     private int count;
 
     /**
-     * Constructor de la playlist publica
-     * @param name , nombre de la playlist publica
+     * 
+     *Public playlist builder
+     * @param name , name of the public playlist
      */
     public PublicP(String name){  //Todo: double[] rates
         super(name);
@@ -15,8 +16,8 @@ public class PublicP extends Playlist {
     }
     
     /** 
-     * Método que calcula la calificación promedio
-     * @return double , con el promedio
+     * Method that calculates the average grade
+     * @return double , with the average
      */
     public double rateAverage(){
         double theAverage = 0;
@@ -26,8 +27,8 @@ public class PublicP extends Playlist {
     
     
     /** 
-     * Método que imprime toda la información de una playlist
-     * @return String , información de la playlist
+     * Method that prints all the information of a playlist
+     * @return String , playlist information
      */
     @Override
     public String playlistToString(){

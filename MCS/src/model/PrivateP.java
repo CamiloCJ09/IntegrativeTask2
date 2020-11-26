@@ -16,8 +16,8 @@ public class PrivateP extends Playlist {
     }
 
     /** 
-     * Método que imprime toda la información de una playlist
-     * @return String , información de la playlist
+     * Method that prints all the information of a playlist
+     * @return String , information of the playlist
      */
     @Override
     public String playlistToString(){

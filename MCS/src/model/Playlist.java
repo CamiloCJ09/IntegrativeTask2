@@ -6,10 +6,10 @@ public abstract class Playlist {
     private Time duration;
     private Song[] playSongs;
 
-    //private String gendersInString = changeGendersOfPlaylist(playlistAllGenders());
+    //We never call this builder constructor
     /**
-     * Constructor de la playlist genérica
-     * @param name , nombre de la playlist
+     * Generic playlist constructor
+     * @param name , name of the playlist
      */
     public Playlist(String name){
         this.name = name;
@@ -19,10 +19,10 @@ public abstract class Playlist {
     }
     
     /** 
-     * Método que permite añadir una canción a la playlist
-     * pre: El arreglo para guardar las canciones en la playlist debe estar definido
+     * Method that let add a song to the playlist
+     * pre: array for saving songs to playlist must be defined
      * pos: 
-     * @param mySong la canción que será agregada a la playlist
+     * @param mySong The song that will be added to the playlist
      */
     public void addAtOnce(Song mySong){
         boolean out = false; 
@@ -30,7 +30,6 @@ public abstract class Playlist {
             if(playSongs[i] == null){
                 playSongs[i] = mySong;
                 out = true;
-                //System.out.println(playSongs[i]); //! Validación
             }
         }
         
@@ -52,9 +51,9 @@ public abstract class Playlist {
     }
     
     /** 
-     * Método que devuelve un arreglo con los géneros de todas las canciones guardadas en la playlist
+     * Method that returns an array with the genres of all the songs stored in the playlist
      * pre:
-     * @return Gender[] arreglo con todos los géneros de las canciones de la playlist
+     * @return Gender[] arrangement with all genres of songs from the playlist
      */
     public Gender[] playlistAllGenders(){
         Gender allSongsGender[] = new Gender[MAX_SONGS_PLAYLIST];
@@ -67,11 +66,11 @@ public abstract class Playlist {
     }
     
     /** 
-     * Método que actualiza el genero de la playlist sin repetir géneros
+     * Method that updates the genre of the playlist without repeating genres
      * pre:
      * pos:
-     * @param allGenders arreglo de géneros de todas las canciones en la playlist
-     * @return String , con los géneros sin repetir de la playlist
+     * @param allGenders genre arrangement of all songs in playlist
+     * @return String , with the genres without repeating from the playlist
      */
     public String changeGendersOfPlaylist(Gender[] allGenders){
         String out = "";
@@ -79,14 +78,11 @@ public abstract class Playlist {
         if(allGenders[0] == null){
             out = "UNKNOWN";
         }else{
-            //Gender pruve = null;
-            //int count = 0;
             for(int i = 0; i<MAX_SONGS_PLAYLIST; i++){
                 for(int j = 0; j<MAX_SONGS_PLAYLIST-1 && !stop; j++){
                     if(i != j){
                         if(allGenders[i] == allGenders[j]){
                             allGenders[i] = null;
-                            //count++;
                         }  
                     }  
                 }     
@@ -101,10 +97,10 @@ public abstract class Playlist {
     }
     
     /** 
-     * Método que actualiza el tiempo de la playlist
-     * pre: el arreglo de canciones debe estar definido con al menos una canción
+     * Method that updates the playlist time
+     * pre: song arrangement must be defined with at least one song
      * pos:
-     * @return int , segundos de duración total de la playlist
+     * @return int , seconds of total playlist duration
      */
     public int updateDuration(){
         int newSecondsTotal = 0;
@@ -117,10 +113,10 @@ public abstract class Playlist {
     }
     
     /** 
-     * Método que convierte los segundos totales de la playlist al formato deseado
+     * Method that converts the total seconds of the playlist to the desired format
      * pre:
      * pos:
-     * @param newSecondsTotal
+     * @param newSecondsTotal total amount of seconds from the playlist
      * @return String
      */
     public String timeToFormat(int newSecondsTotal){
@@ -132,8 +128,8 @@ public abstract class Playlist {
     }
     
     /** 
-     * Método que imprime toda la información de una playlist
-     * @return String , información de la playlist
+     * Method that prints all the information of a playlist
+     * @return String , information of the playlist
      */
     public String playlistToString(){
         String out = "";

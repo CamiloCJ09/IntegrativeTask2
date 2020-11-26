@@ -10,7 +10,7 @@ public class Mcs {
     private int numUsers; 
     private int numSongs;
     private int numPlaylist;
-
+    //Relations
     private User users[];
     private Playlist thePlaylist[];
     private Song poolOfSongs[];
@@ -28,10 +28,10 @@ public class Mcs {
     }
     
     /**
-     * Método que nos retorna el nombre del usuario en una determinada posición del arreglo
-     * pre: debe existir al menos un usuario creado en el arreglo de usuarios
+     * Method that returns the name of the user in a certain position of the array
+     * pre: there must be at least one user created in the user array
      * pos: 
-     * @param index posición en el arreglo de usuarios para saber a cual de ellos nos referimos
+     * @param index position in the arrangement of users to know which of them we refer to
      */
     public String returnUserName(int index){
         index = index-1;
@@ -41,11 +41,11 @@ public class Mcs {
     }
     
     /** 
-     * Método que me permite encontrar un usuario en particular para poder asignarlo a una playlist
-     * pre: debe existir un usuario creado
+     * Method that allows me to find a particular user to be able to assign it to a playlist
+     * pre: there must be a user created
      * pos:
-     * @param name nombre del usuario a encontrar
-     * @return User usuario a asignar a una playlist
+     * @param name username to find
+     * @return user to assign to a playlist
      */
     public User whoIsThis(String name){
         boolean out = false;
@@ -60,9 +60,9 @@ public class Mcs {
     }
     
     /** 
-     * Método que crea un arreglo con los usuarios capaces de acceder a una determinada playlist restringida
-     * @param indexes ubicación de los usuarios que pueden acceder a una playlist restringida
-     * @return User[] un arreglo de usuarios que son capaces de acceder a la playlist restringida
+     * Method that creates an arrangement with users able to access a certain restricted playlist
+     * @param indexes location of users who can access a restricted playlist
+     * @return User[] an array of users who are able to access the restricted playlist
      */
     public User[] restrictedUserArray(int[] indexes){
         User[] usersArray = new User[5];
@@ -73,24 +73,24 @@ public class Mcs {
     }
     
     /** 
-     * Método que me permite saber si aún se pueden crear usuarios
-     * @return boolean que me determina si hay espacio o no
+     * Method that lets me know if users can still be created
+     * @return boolean that determines if there is space or not
      */
     public boolean hasUser(){
         return numUsers < MAX_USERS;
     }
     
     /** 
-     * Método que me permite saber si aún se pueden crear canciones
-     * @return boolean que me determina si hay espacio o no
+     * Method that lets me know if songs can still be created
+     * @return boolean that determines if there is space or not
      */
     public boolean hasSongs(){
         return numSongs < MAX_POOLOFSONGS;
     }
     
     /** 
-     * Método que me permite saber si aún se pueden crear canciones
-     * @return boolean que me determina si hay espacio o no
+     * Method that lets me know if playlist can still be created
+     * @return boolean that determines if there is space or not
      */
     public boolean hasPlaylist(){
         return numPlaylist < MAX_PLAYLISTS;
@@ -98,10 +98,11 @@ public class Mcs {
 
     
     /** 
-     * Método que permite crear un usuario
-     * @param userName nombre de usuario
-     * @param password contraseña del usuario
-     * @param age edad del usuario
+     * Method that create an user
+     * Pre: Must have space in the users array
+     * @param userName User name
+     * @param password User password
+     * @param age User age
      */
     public void addUser(String userName, String password, int age){  
         boolean out = false;
@@ -119,14 +120,14 @@ public class Mcs {
     
     
     /** 
-     * Método que permite al usuario crear canciones y añadirlas directamente al pool de canciones
-     * pre: debe estár declarado el array de pool of songs
+     * Method that allows the user to create songs and add them directly to the song pool
+     * pre: the pool of songs array must be declared
      * pos:
-     * @param title nombre de la canción
-     * @param artistName nombre del artista
-     * @param releasingDate fecha de salida
-     * @param minutes los minutos que tiene la canción
-     * @param seconds los segundos que tiene la canción
+     * @param title Song name
+     * @param artistName Artist name
+     * @param releasingDate Release date
+     * @param minutes Minutes that the song have
+     * @param seconds Seconds that the song have
      */
     public void addSongToPool(String title, String artistName, String releasingDate, int minutes, int seconds, String songGender){//Desde aquí se crean las canciones y directamente se guardan en el pool
         Time duration = new Time(minutes, seconds);
@@ -144,13 +145,13 @@ public class Mcs {
     }
     
     /** 
-     * Método que permite añadir a una playlist una canción
-     * pre: debe existir un array de playlist con al menos una playlist y debe existir un array de pool of song con al menos una canción
-     * @param index1 playlist a la cual queremos añadir una canción
-     * @param index2 canción la cual queremos añadir a una playlist
-     * @param index3 usuario que añade la canción a la playlist
+     * Method for adding a song to a playlist
+     * pre: there must be a playlist array with at least one playlist and there must be a pool of song array with at least one song
+     * @param index1 playlist to which we want to add a song
+     * @param index2 song which we want to add to a playlist
+     * @param index3 user who adds the song to the playlist
      */
-    public String addToPlaylist(int index1, int index2, int index3){//Mandamos las canciones del pool a cualquier playlist disponible elegida por el usuario
+    public String addToPlaylist(int index1, int index2, int index3){
         String msg = "";
         index1 = index1-1;
         index2 = index2-1;
@@ -180,9 +181,9 @@ public class Mcs {
     }
    
     /** 
-     * Método que muestra la información de todos los usuarios creados
-     * pre: debe existir al menos un usuario creado en el arreglo del usuario
-     * @return String , con la información de todos los usuarios creados hasta el momento
+     * Method that displays the information of all created users
+     * pre: there must be at least one user created in the user's array
+     * @return String , with the information of all the users created so far
      */
     public String showUsers(){
         String msg = "";
@@ -195,9 +196,9 @@ public class Mcs {
     }
     
     /** 
-     * Método que muestra la información de todas las canciones creadas hasta el momento
-     * pre: debe existir al menos una canción en el arreglo de canciones
-     * @return String , con la información de todas las canciones creadas hasta el momento
+     * Method that displays the information of all songs created so far
+     * pre: there must be at least one song in the song arrangement
+     * @return String , with the information of all the songs created so far
      */
     public String showSongs(){
         String msg = "";
@@ -212,9 +213,9 @@ public class Mcs {
     }
     
     /** 
-     * Método que muestra los nombres de todos los usuarios creados hasta el momento
-     * pre: debe existir al menos un usuario creado en el arreglo del usuario
-     * @return String , con los nombres de todos los usuario creados hasta el momento
+     * Method that displays the names of all users created so far
+     * pre: there must be at least one user created in the user's array
+     * @return String , with the names of all the users created so far
      */
     public String showNames(){
         String out = "";
@@ -227,18 +228,18 @@ public class Mcs {
     }
     
     /** 
-     * Método que añade 1 al total de canciones compartidas por un usuario
-     * @param namePosicion index donde se encuentra ubicado el usuario
+    * Method that adds 1 to the total number of songs shared by a user
+    * @param namePosition index where the user is located
      */
-    public void userIndex(int namePosicion){
-        int index = namePosicion-1;
+    public void userIndex(int namePosition){
+        int index = namePosition-1;
         users[index].setAmountOfSong(users[index].getAmountOfSongs()+1); 
     }
     
     /** 
-     * Método que actualiza el rango de cada usuario
-     * pre: debe existir al menos un usuario creado en el arreglo del usuario
-     * @param index , ubicación del usuario que deseamos actualizar su rango
+     * Method that updates the rank of each user
+     * pre: there must be at least one user created in the user's array
+     * @param index , location of the user we want to update their rank
      */
     public void updateRank(int index){
         index = index-1;
@@ -252,9 +253,9 @@ public class Mcs {
     }
     
     /** 
-     * Método que permite crear una playlist
-     * pre: debe estar declarado un arreglo de playlist para poder guardar
-     * @param name nombre de la playlist
+     * Method that allows creating a playlist
+     * pre: a playlist arrangement must be declared in order to save
+     * @param name name of the playlist
      */
     public void createPlaylist(String name){
         boolean out = false;
@@ -269,10 +270,10 @@ public class Mcs {
     }
     
     /** 
-     * Método que permite crear una playlist
-     * pre: debe estar declarado un arreglo de playlist para poder guardar
-     * @param name nombre de la playlist
-     * @param usersArray arreglo de usuarios los cuales tienen acceso a la playlist
+     * Method that allows creating a playlist
+     * pre: a playlist arrangement must be declared in order to save
+     * @param name name of the playlist
+     * @param usersArray array of users who have access to the playlist
      */
     public void createPlaylist(String name, User[] usersArray){
         boolean out = false;
@@ -286,10 +287,10 @@ public class Mcs {
     }
     
     /** 
-     * Método que permite crear una playlist
-     * pre: debe estar declarado un arreglo de playlist para poder guardar
+     * Method that allows creating a playlist
+     * pre: a playlist arrangement must be declared in order to save
      * @param name the name of the playlist
-     * @param myUser the name of the user that create the playlist
+     * @param myUser user that create the playlist
      */
     public void createPlaylist(String name, User myUser){
         boolean out = false;
@@ -304,9 +305,9 @@ public class Mcs {
     }
     
     /** 
-     * Método que permite mostrar todas las playlist creadas hasta el momento
-     * pre: debe existir como mínimo una playlist en el arreglo de playlists
-     * @return String , con toda la información de cada playlist
+     * Method that allows showing all the playlists created so far
+     * pre: there must be at least one playlist in the playlist array
+     * @return String , with all the information of each playlist
      */
     public String showPlaylists(){
         String out = "";
@@ -324,9 +325,9 @@ public class Mcs {
     
     
     /** 
-     * Método que permite mostrar todas las playlists publicas creadas hasta el momento
-     * pre: Debe existir como mínimo una playlist publica creada hasta el momento
-     * @return String , con los nombres de todas las playlists publicas creadas hasta el momento
+     * Method that allows showing all the public playlists created so far
+     * pre: There must be at least one public playlist created so far
+     * @return String , with the names of all the public playlists created so far
      */
     public String showPublicPlaylist(){
         String out = "";
@@ -344,9 +345,9 @@ public class Mcs {
     Playlist[] onlyPublicPlaylist;
     
     /** 
-     * Método que permite guardar todas la playlist publicas en un arreglo
-     * pre: debe existir por lo menos una playlist publica en el arreglo de canciones general
-     * @return Playlist[] , arreglo con todas las playlists publicas creadas hasta el momento
+     * Method that allows saving all the public playlists in an arrangement
+     * pre: there must be at least one public playlist in the overall song arrangement
+     * @return Playlist[] , array with all public playlists created so far
      */
     public Playlist[] onlyPublicPlaylistsToScore(){ 
         onlyPublicPlaylist = new Playlist[MAX_PLAYLISTS];
@@ -366,11 +367,11 @@ public class Mcs {
     }
     
     /** 
-     * Método que permite añadir valores de calificación a una playlist publica
+     * Method that allows adding rating values ​​to a public playlist
      * pre:
-     * @param onlyPublic arreglo de playlists publicas creadas hasta el momento
-     * @param index posición de playlist a buscar
-     * @param score calificación a asignar
+     * @param onlyPublic array of public playlists created so far
+     * @param index playlist position to search
+     * @param score grade to assign
      */
     public void updateScoreInPPlaylist(Playlist[] onlyPublic, int index, double score){
         boolean out = false;
@@ -385,9 +386,9 @@ public class Mcs {
     }
     
     /** 
-     * Método que permite mostrar los nombres de todas las playlists creadas hasta el momento
+     * Method that allows showing the names of all the playlists created so far
      * pre: 
-     * @return String
+     * @return String , with the name of the playlists
      */
     public String showPlaylistNames(){
         String out = "";
@@ -401,9 +402,9 @@ public class Mcs {
     }
     
     /** 
-     * Método que permite mostrar los nombres de todas las canciones creadas hasta el momento
+     * Method that allows displaying the names of all the songs created so far
      * pre:
-     * @return String , que posee todos los nombres de todas las canciones creadas hasta el momento
+     * @return String , which has all the names of all the songs created so far
      */
     public String showSongNames(){
         String out = "";

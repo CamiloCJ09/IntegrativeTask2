@@ -214,9 +214,8 @@ public class Main{
         System.out.println("Elija el usuario que desea añadir");
         System.out.println(myMcs.showNames());
         index3 = sc.nextInt();
-        myMcs.addToPlaylist(index1, index2, index3);
         System.out.println("-----------------------------");
-        System.out.println("Canción añadida con exito :D");
+        System.out.println(myMcs.addToPlaylist(index1, index2, index3));
         System.out.println("-----------------------------");
     }
     /**

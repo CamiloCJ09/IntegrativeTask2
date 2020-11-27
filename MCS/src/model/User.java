@@ -13,7 +13,6 @@ public class User {
         this.password = password;
         this.age = age;
         userRank = Rank.NEWBIE;
-        this.amountOfSongs = amountOfSongs;
     }
     
     /** 

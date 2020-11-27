@@ -156,6 +156,7 @@ public class Mcs {
         index1 = index1-1;
         index2 = index2-1;
         index3 = index3-1;
+        boolean out = false;
         if(thePlaylist[index1] instanceof PrivateP){
             if(((PrivateP)thePlaylist[index1]).getMyUser().equals(users[index3])){
                 thePlaylist[index1].addAtOnce(poolOfSongs[index2]);
@@ -165,10 +166,11 @@ public class Mcs {
             }
         }else if(thePlaylist[index1] instanceof Restricted){
             User[] restrictedUsers = ((Restricted)thePlaylist[index1]).getMyUsers();
-            for(int i = 0; i < restrictedUsers.length; i++){
+            for(int i = 0; i < restrictedUsers.length && !out; i++){
                 if(restrictedUsers[i].equals(users[index3])){
                     thePlaylist[index1].addAtOnce(poolOfSongs[index2]);
                     msg = "Canción añadida a la playlist";
+                    out = true;
                 }else{
                     msg = "No puedes añadir canciones a esta playlist";
                 }
@@ -202,7 +204,6 @@ public class Mcs {
      */
     public String showSongs(){
         String msg = "";
-        boolean out = false;
         for(int i = 0; i<MAX_POOLOFSONGS ; i++){
             if(poolOfSongs[i] != null){
                 msg += poolOfSongs[i].showSongData();
@@ -351,18 +352,15 @@ public class Mcs {
      */
     public Playlist[] onlyPublicPlaylistsToScore(){ 
         onlyPublicPlaylist = new Playlist[MAX_PLAYLISTS];
-        int posicion = 0;
-        String out = "";
+        int position = 0;
         for(int i = 0; i < MAX_PLAYLISTS; i++){
             if(thePlaylist[i] instanceof PublicP){
-                if(onlyPublicPlaylist[posicion] == null){
-                    onlyPublicPlaylist[posicion] = thePlaylist[i];
-                    out += onlyPublicPlaylist[posicion].getName();
-                    posicion++;
+                if(onlyPublicPlaylist[position] == null){
+                    onlyPublicPlaylist[position] = thePlaylist[i];
+                    position++;
                 }
             }
         }
-        //System.out.println(out);
         return onlyPublicPlaylist;
     }
     

@@ -12,11 +12,11 @@ public class Song {
 
     /**
      * Método constructor de una canción
-     * @param title
-     * @param artistName
-     * @param releasingDate
-     * @param duration
-     * @param songGender
+     * @param title the title of the song
+     * @param artistName the name of the artist
+     * @param releasingDate the releasing date
+     * @param duration the duration of the song
+     * @param songGender the gender of the song
      */
     public Song(String title, String artistName, String releasingDate, Time duration, Gender songGender){
         this.title = title;

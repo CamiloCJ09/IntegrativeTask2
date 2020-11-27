@@ -2,11 +2,11 @@ package model;
 
 public class Restricted extends Playlist {
     public final int MAX_MYUSERS = 5;
-    private User myUsers[] = new User[MAX_MYUSERS];
+    private User myUsers[]; 
 
     public Restricted(String name, User[] myUsers){
         super(name);
-        this.myUsers = myUsers;
+        this.myUsers = new User[MAX_MYUSERS];;
     }
 
     /**

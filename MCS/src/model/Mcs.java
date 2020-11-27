@@ -32,6 +32,7 @@ public class Mcs {
      * pre: there must be at least one user created in the user array
      * pos: 
      * @param index position in the arrangement of users to know which of them we refer to
+     * @return String, that represents the name that we have found
      */
     public String returnUserName(int index){
         index = index-1;
@@ -128,8 +129,9 @@ public class Mcs {
      * @param releasingDate Release date
      * @param minutes Minutes that the song have
      * @param seconds Seconds that the song have
+     * @param songGender the gender of the song
      */
-    public void addSongToPool(String title, String artistName, String releasingDate, int minutes, int seconds, String songGender){//Desde aquí se crean las canciones y directamente se guardan en el pool
+    public void addSongToPool(String title, String artistName, String releasingDate, int minutes, int seconds, String songGender){
         Time duration = new Time(minutes, seconds);
         duration.setMinutes(minutes);
         duration.setSeconds(seconds);
@@ -150,6 +152,7 @@ public class Mcs {
      * @param index1 playlist to which we want to add a song
      * @param index2 song which we want to add to a playlist
      * @param index3 user who adds the song to the playlist
+     * @return String that says the confirmation message
      */
     public String addToPlaylist(int index1, int index2, int index3){
         String msg = "";

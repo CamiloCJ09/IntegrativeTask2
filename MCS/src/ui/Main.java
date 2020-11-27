@@ -17,9 +17,7 @@ public class Main{
         sc = new Scanner(System.in);
     }
     
-    /** 
-     * @param args
-     */
+    
     public static void main(String [] args){
         System.out.println("Hola");
         System.out.println("Inicio del codigo");
